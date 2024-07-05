@@ -1,0 +1,39 @@
+/* Header layout */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+
+  padding: 1.5rem 0;
+
+  background-color: #2e4374;
+}
+
+/* Header content styles */
+
+.imgLogo {
+  height: 18rem;
+}
+
+.primaryHeading {
+  font-size: 6.4rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+
+  color: #fffafa;
+}
+
+/* Responsivity */
+
+@media (max-width: 768px) {
+  .imgLogo {
+    height: 10rem;
+  }
+
+  .primaryHeading {
+    font-size: 4rem;
+  }
+}
