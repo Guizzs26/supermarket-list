@@ -1,6 +1,6 @@
 import styles from "./logo.module.css";
 
-export default function Logo() {
+export default function Logo(): JSX.Element {
   return (
     <header className={styles.header}>
       <img
