@@ -7,6 +7,7 @@ import { ItemEntity } from "./components/item/types/item.entity";
 import Logo from "./components/logo/Logo";
 import FormAddItem from "./components/form-add-item/FormAddItem";
 import ListOfItems from "./components/list-of-items/ListOfItems";
+import Stats from "./components/stats/Stats";
 
 export default function App() {
   const [items, setItems] = useState<ItemEntity[]>([]);
@@ -30,12 +31,13 @@ export default function App() {
   return (
     <div className={styles.appContainer}>
       <Logo />
+      <FormAddItem onAddItem={handleAddItem} />
       <ListOfItems
         items={items}
         onDeleteItem={handleDeleteItem}
         onToggleItem={handleToggleItem}
       />
-      <FormAddItem onAddItem={handleAddItem} />
+      <Stats items={items} />
     </div>
   );
 }
