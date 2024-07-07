@@ -4,4 +4,5 @@ export type ListOfItemsProps = {
   items: ItemEntity[];
   onDeleteItem: (id: string) => void;
   onToggleItem: (id: string) => void;
+  onClearList: () => void;
 };

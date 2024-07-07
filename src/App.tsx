@@ -28,6 +28,14 @@ export default function App() {
     );
   };
 
+  const handleClearList = () => {
+    const confirmed = window.confirm("Are you sure?");
+
+    if (confirmed) {
+      setItems([]);
+    }
+  };
+
   return (
     <div className={styles.appContainer}>
       <Logo />
@@ -36,6 +44,7 @@ export default function App() {
         items={items}
         onDeleteItem={handleDeleteItem}
         onToggleItem={handleToggleItem}
+        onClearList={handleClearList}
       />
       <Stats items={items} />
     </div>

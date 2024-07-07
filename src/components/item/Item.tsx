@@ -9,7 +9,9 @@ export default function Item({ item, onDeleteItem, onToggleItem }: ItemProps) {
         onChange={() => onToggleItem(item.id)}
       />
 
-      <span>
+      <span
+        style={{ textDecoration: item.isCompleted ? "line-through" : "none" }}
+      >
         {item.quantity} {item.description}
       </span>
 
