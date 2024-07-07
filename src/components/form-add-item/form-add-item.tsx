@@ -1,12 +1,23 @@
+import styles from "./form-add-item.module.css";
+
 import { ChangeEvent, FormEvent, useState } from "react";
-
-import styles from "./FormAddItem.module.css";
-
 import { FormAddItemProps } from "./types/form.add.item.type";
 
-export default function FormAddItem({ onAddItem }: FormAddItemProps) {
+const quantities = Array.from({ length: 10 }, (_, i) => i + 1);
+
+const FormAddItem = ({ onAddItem }: FormAddItemProps): JSX.Element => {
   const [description, setDescription] = useState<string>("");
   const [quantity, setQuantity] = useState<number>(0);
+
+  // Controlled Input Element
+  const handleDescriptionChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setDescription(e.target.value);
+  };
+
+  // Controlled Select Element
+  const handleQuantityChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    setQuantity(Number(e.target.value));
+  };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -17,7 +28,7 @@ export default function FormAddItem({ onAddItem }: FormAddItemProps) {
       id: crypto.randomUUID(),
       description,
       quantity,
-      isCompleted: false,
+      packed: false,
     };
 
     onAddItem(newItem);
@@ -26,20 +37,12 @@ export default function FormAddItem({ onAddItem }: FormAddItemProps) {
     setQuantity(0);
   };
 
-  const handleChangeInputText = (e: ChangeEvent<HTMLInputElement>) => {
-    setDescription(e.target.value);
-  };
-
-  const handleChangeSelectValue = (e: ChangeEvent<HTMLSelectElement>) => {
-    setQuantity(Number(e.target.value));
-  };
-
   return (
     <form onSubmit={handleSubmit} className={styles.addForm}>
       <h3 className={styles.tertiaryHeading}>What do you need to buy?</h3>
 
-      <select value={quantity} onChange={handleChangeSelectValue}>
-        {Array.from({ length: 20 }, (_, i) => i + 1).map((num) => (
+      <select value={quantity} onChange={handleQuantityChange}>
+        {quantities.map((num) => (
           <option value={num} key={num}>
             {num}
           </option>
@@ -48,10 +51,10 @@ export default function FormAddItem({ onAddItem }: FormAddItemProps) {
 
       <input
         type="text"
-        placeholder="Add item here"
+        placeholder="Add item..."
         autoFocus
         value={description}
-        onChange={handleChangeInputText}
+        onChange={handleDescriptionChange}
         className={styles.inputText}
       />
 
@@ -60,4 +63,6 @@ export default function FormAddItem({ onAddItem }: FormAddItemProps) {
       </button>
     </form>
   );
-}
+};
+
+export { FormAddItem };

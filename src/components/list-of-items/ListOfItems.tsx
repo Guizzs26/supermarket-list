@@ -6,12 +6,12 @@ import { ListOfItemsProps } from "./types/list.of.items";
 
 import Item from "../item/Item";
 
-export default function ListOfItems({
+const ListOfItems = ({
   items,
   onDeleteItem,
   onToggleItem,
   onClearList, // Add this line
-}: ListOfItemsProps) {
+}: ListOfItemsProps): JSX.Element => {
   const [sortBy, setSortBy] = useState("input");
 
   let sortedItems: ItemEntity[] = [];
@@ -26,7 +26,7 @@ export default function ListOfItems({
   if (sortBy === "packed")
     sortedItems = items
       .slice()
-      .sort((a, b) => Number(a.isCompleted) - Number(b.isCompleted));
+      .sort((a, b) => Number(a.packed) - Number(b.packed));
 
   const handleChangeSelectElement = (e: ChangeEvent<HTMLSelectElement>) => {
     setSortBy(e.target.value);
@@ -55,4 +55,6 @@ export default function ListOfItems({
       </div>
     </div>
   );
-}
+};
+
+export { ListOfItems };

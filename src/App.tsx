@@ -4,8 +4,8 @@ import styles from "./App.module.css";
 
 import { ItemEntity } from "./components/item/types/item.entity";
 
-import Logo from "./components/logo/Logo";
-import FormAddItem from "./components/form-add-item/FormAddItem";
+import Logo from "./components/logo/logo";
+import FormAddItem from "./components/form-add-item/form-add-item";
 import ListOfItems from "./components/list-of-items/ListOfItems";
 import Stats from "./components/stats/Stats";
 
@@ -23,7 +23,7 @@ export default function App() {
   const handleToggleItem = (id: string) => {
     setItems((items) =>
       items.map((item) =>
-        item.id === id ? { ...item, item: !item.isCompleted } : item
+        item.id === id ? { ...item, isCompleted: !item.isCompleted } : item
       )
     );
   };
