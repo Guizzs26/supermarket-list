@@ -15,10 +15,26 @@ export default function App() {
     setItems((items) => [...items, newItem]);
   };
 
+  const handleDeleteItem = (id: string) => {
+    setItems((items) => items.filter((item) => item.id !== id));
+  };
+
+  const handleToggleItem = (id: string) => {
+    setItems((items) =>
+      items.map((item) =>
+        item.id === id ? { ...item, item: !item.isCompleted } : item
+      )
+    );
+  };
+
   return (
     <div className={styles.appContainer}>
       <Logo />
-      <ListOfItems item={items} />
+      <ListOfItems
+        items={items}
+        onDeleteItem={handleDeleteItem}
+        onToggleItem={handleToggleItem}
+      />
       <FormAddItem onAddItem={handleAddItem} />
     </div>
   );
