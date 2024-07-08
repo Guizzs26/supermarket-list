@@ -1,46 +1,54 @@
 import { ChangeEvent, useCallback, useState } from "react";
-
 import { ItemEntity } from "../components/item/types/item.entity";
-import { OrderByType } from "../components/list-of-items/types/order.by.type";
 
 const useItems = () => {
-  const [items, setItems] = useState<ItemEntity[]>([]);
-  const [orderBy, setOrderBy] = useState<OrderByType>("newest");
+  const [items, setItems] = useState<ItemEntity[]>(() => {
+    const savedItems = localStorage.getItem("items");
+    return savedItems ? JSON.parse(savedItems) : [];
+  });
+
+  const [orderBy, setOrderBy] = useState<string>("newest");
+
+  const updateItems = (newItems: ItemEntity[]) => {
+    setItems(newItems);
+    localStorage.setItem("items", JSON.stringify(newItems));
+  };
 
   const handleSubmit = useCallback(
-    (newItem: ItemEntity) => setItems((prev) => [...prev, newItem]),
-    []
+    (newItem: ItemEntity) => updateItems([...items, newItem]),
+    [items]
   );
 
   const handleChangeOrder = useCallback(
-    (e: ChangeEvent<HTMLSelectElement>) =>
-      setOrderBy(e.target.value as OrderByType),
+    (e: ChangeEvent<HTMLSelectElement>) => setOrderBy(e.target.value),
     []
   );
 
   const handleDeleteItem = useCallback(
-    (id: string) => setItems((prev) => prev.filter((item) => item.id !== id)),
-    []
+    (id: string) => {
+      const filteredItems = items.filter((item) => item.id !== id);
+      updateItems(filteredItems);
+    },
+    [items]
   );
 
   const handleClearList = useCallback(() => {
     const confirmed = window.confirm(
       "Are you sure you want to clear the list?"
     );
-
     if (confirmed) {
-      setItems([]);
+      updateItems([]);
     }
   }, []);
 
   const handleCheckItem = useCallback(
-    (id: string) =>
-      setItems((prev) =>
-        prev.map((item) =>
-          item.id === id ? { ...item, packed: !item.packed } : item
-        )
-      ),
-    []
+    (id: string) => {
+      const toggledItems = items.map((item) =>
+        item.id === id ? { ...item, packed: !item.packed } : item
+      );
+      updateItems(toggledItems);
+    },
+    [items]
   );
 
   return {
