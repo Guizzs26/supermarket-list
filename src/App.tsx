@@ -2,11 +2,11 @@ import styles from "./App.module.css";
 
 import { useItems } from "./hooks/use-items";
 
-import { Logo } from "./components/logo/Logo.tsx";
-import { FormAddItem } from "./components/form-add-item/Form-add-item.tsx";
-import { ListOfItems } from "./components/list-of-items/List-of-items.tsx";
-import { Filters } from "./components/filters/Filter.tsx";
-import { Stats } from "./components/stats/Stats.tsx";
+import { Logo } from "./components/logo/index";
+import { FormAddItem } from "./components/form-add-item/index";
+import { ListOfItems } from "./components/list-of-items/index";
+import { Filters } from "./components/filters/index";
+import { Stats } from "./components/stats/index";
 
 export default function App() {
   const state = useItems();
