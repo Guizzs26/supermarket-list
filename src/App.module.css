@@ -19,6 +19,8 @@
 
   padding: 4rem 0;
 
+  overflow-x: hidden;
+
   color: #4b527e;
   background-color: #dbe4ff;
 }
@@ -47,6 +49,13 @@
   display: flex;
   align-items: center;
   gap: 1.2rem;
+
+  text-align: center;
+
+  flex-grow: 1;
+  min-width: 0;
+
+  word-break: break-word;
 }
 
 .list li button {
@@ -79,12 +88,18 @@
   .list li {
     width: calc(50% - 0.5rem);
 
+    font-size: 1.8rem;
+
     padding: 1rem;
   }
 
   .list li button {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
 
     padding: 0.6rem 1.2rem;
+  }
+
+  .list select {
+    font-size: 1.2rem;
   }
 }

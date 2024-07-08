@@ -13,10 +13,13 @@ html {
 }
 
 body {
+  min-height: 100vh;
   font-size: 2.4rem;
   font-family: "Istok Web", sans-serif;
   font-weight: 400;
   line-height: 1;
+
+  overflow-x: hidden;
 
   color: #fff;
 }
@@ -37,7 +40,7 @@ input {
   cursor: pointer;
 
   color: #fff;
-  background-color: #7c81ad;
+  background-color: #868e96;
 }
 
 input::placeholder {

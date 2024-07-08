@@ -6,13 +6,13 @@
 
   padding: 3.2rem 0;
 
-  background-color: #4b527e;
+  background-color: #495057;
 }
 
 /* Responsivity */
 
 @media (max-width: 768px) {
   .stats {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
   }
 }

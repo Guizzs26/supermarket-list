@@ -8,7 +8,7 @@
 
   padding: 1.5rem 0;
 
-  background-color: #2e4374;
+  background-color: #343a40;
 }
 
 /* Header content styles */
@@ -34,6 +34,6 @@
   }
 
   .primaryHeading {
-    font-size: 4rem;
+    font-size: 3.8rem;
   }
 }

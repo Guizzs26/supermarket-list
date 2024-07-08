@@ -8,7 +8,7 @@
 
   padding: 2.8rem 0;
 
-  background-color: #4b527e;
+  background-color: #495057;
 }
 
 /* Form content styles */
@@ -23,24 +23,22 @@
 .submitBtn {
   transition: all 0.3s ease;
 
-  background-color: #748ffc;
+  background-color: #fab005;
 }
 
 .submitBtn:hover {
-  background-color: #5c7cfa;
+  background-color: #f59f00;
 }
 
 /* Responsivity */
 
 @media (max-width: 768px) {
   .addForm {
-    padding: 2rem 1.6rem;
+    padding: 2rem 1.8rem;
   }
 
   .tertiaryHeading {
-    font-size: 1.4rem;
-    font-weight: 500;
-    word-break: keep-all;
+    font-size: 1.2rem;
 
     margin-top: 1rem;
     margin-bottom: 1.2rem;
@@ -48,18 +46,18 @@
 
   .select,
   .inputText {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     padding: 0.6rem 1rem;
   }
 
   .submitBtn {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     padding: 0.6rem 1.2rem;
   }
 }
 
 @media (max-width: 900px) {
   .addForm {
-    padding: 2rem 1.6rem;
+    padding: 2rem 1.4rem;
   }
 }

@@ -9,9 +9,15 @@
 
   transition: all 0.3s ease;
 
-  background-color: #748ffc;
+  background-color: #fab005;
 }
 
 .actions button:hover {
-  background-color: #5c7cfa;
+  background-color: #f59f00;
+}
+
+@media (max-width: 768px) {
+  .clearBtn {
+    font-size: 1.2rem;
+  }
 }
