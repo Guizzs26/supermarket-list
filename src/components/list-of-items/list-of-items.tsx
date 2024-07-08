@@ -1,5 +1,3 @@
-import styles from "./ListOfItems.module.css";
-
 import { ListOfItemsProps } from "./types/list.of.items";
 import { ItemEntity } from "../item/types/item.entity";
 
@@ -30,7 +28,7 @@ const ListOfItems = ({
   }
 
   return (
-    <ul className={styles.listItems}>
+    <ul>
       {sortedItems.map((item) => (
         <Item
           item={item}

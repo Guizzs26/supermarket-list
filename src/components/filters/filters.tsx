@@ -1,3 +1,5 @@
+import styles from "./filters.module.css";
+
 import { FiltersProps } from "./types/filters.type.prop";
 
 const Filters = ({
@@ -6,7 +8,7 @@ const Filters = ({
   onClearList,
 }: FiltersProps): JSX.Element => {
   return (
-    <div>
+    <div className={styles.actions}>
       <select value={orderBy} onChange={onChangeOrder}>
         <option value="newest">Sort by most recent</option>
         <option value="stored">Sort by packed items</option>

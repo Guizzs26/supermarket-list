@@ -8,10 +8,7 @@ const Logo = (): JSX.Element => {
         alt="An illustration of a person shopping"
         className={styles.imgLogo}
       />
-      <h1 className={styles.primaryHeading}>
-        Shopping <br />
-        Grocery List
-      </h1>
+      <h1 className={styles.primaryHeading}>Grocery List</h1>
     </header>
   );
 };

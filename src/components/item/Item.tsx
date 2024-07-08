@@ -1,8 +1,10 @@
+import styles from "./Item.module.css";
+
 import { ItemProps } from "./types/item";
 
 const Item = ({ item, onDeleteItem, onCheckItem }: ItemProps) => {
   return (
-    <li>
+    <li className={styles.listItems}>
       <input
         type="checkbox"
         checked={item.packed}

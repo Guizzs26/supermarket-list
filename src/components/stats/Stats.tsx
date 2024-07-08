@@ -1,9 +1,11 @@
+import styles from "./stats.module.css";
+
 import { StatsProps } from "./types/stats";
 
 const Stats = ({ items }: StatsProps) => {
   if (items.length === 0) {
     return (
-      <p>
+      <p className={styles.stats}>
         <em>Please, start by adding some items to your list 😁</em>
       </p>
     );
@@ -16,7 +18,7 @@ const Stats = ({ items }: StatsProps) => {
   const singularPlural = numItems === 1 ? "item" : "items";
 
   return (
-    <footer>
+    <footer className={styles.stats}>
       {percentage === 100 ? (
         <p>Nice! You got everything 😎</p>
       ) : (

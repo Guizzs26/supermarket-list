@@ -42,7 +42,11 @@ const FormAddItem = ({ onAddItem }: FormAddItemProps): JSX.Element => {
     <form onSubmit={handleSubmit} className={styles.addForm}>
       <h3 className={styles.tertiaryHeading}>What do you need to buy?</h3>
 
-      <select value={quantity} onChange={handleChangeQuantity}>
+      <select
+        value={quantity}
+        onChange={handleChangeQuantity}
+        className={styles.select}
+      >
         {quantities.map((num) => (
           <option value={num} key={num}>
             {num}

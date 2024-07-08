@@ -5,6 +5,7 @@ import { useItems } from "./hooks/use-items";
 import { Logo } from "./components/logo";
 import { FormAddItem } from "./components/form-add-item";
 import { ListOfItems } from "./components/list-of-items";
+import { Filters } from "./components/filters";
 import { Stats } from "./components/stats";
 
 export default function App() {
@@ -22,6 +23,10 @@ export default function App() {
           orderBy={state.orderBy}
           onDeleteItem={state.handleDeleteItem}
           onCheckItem={state.handleCheckItem}
+        />
+        <Filters
+          orderBy={state.orderBy}
+          onChangeOrder={state.handleChangeOrder}
           onClearList={state.handleClearList}
         />
       </div>
