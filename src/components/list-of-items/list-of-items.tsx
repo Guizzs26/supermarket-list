@@ -1,5 +1,5 @@
 import { ItemEntity } from "../item/types/item.entity";
-import { ListOfItemsProps } from "./types/list.of.items";
+import { ListOfItemsProps } from "./types/list.of.items.type.prop";
 
 import { Item } from "../item";
 

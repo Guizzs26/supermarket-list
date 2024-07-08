@@ -1,6 +1,6 @@
-import { ItemProps } from "./types/item";
+import { ItemProps } from "./types/item.type.prop";
 
-const Item = ({ item, onDeleteItem, onCheckItem }: ItemProps) => {
+const Item = ({ item, onDeleteItem, onCheckItem }: ItemProps): JSX.Element => {
   return (
     <li>
       <input

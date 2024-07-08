@@ -1,8 +1,8 @@
 import styles from "./stats.module.css";
 
-import { StatsProps } from "./types/stats";
+import { StatsProps } from "./types/stats.type.prop";
 
-const Stats = ({ items }: StatsProps) => {
+const Stats = ({ items }: StatsProps): JSX.Element => {
   if (items.length === 0) {
     return (
       <p className={styles.stats}>
