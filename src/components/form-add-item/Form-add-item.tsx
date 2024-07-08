@@ -36,7 +36,7 @@ const FormAddItem = ({ onAddItem }: FormAddItemProps): JSX.Element => {
     onAddItem(newItem);
 
     setDescription("");
-    setQuantity(0);
+    setQuantity(1);
   };
 
   return (
