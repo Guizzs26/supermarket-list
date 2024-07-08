@@ -1,1 +1,1 @@
-export { FormAddItem } from "./Form-add-item.tsx";
+export { FormAddItem } from "./Form-add-item";
