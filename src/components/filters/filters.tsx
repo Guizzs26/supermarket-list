@@ -11,7 +11,7 @@ const Filters = ({
     <div className={styles.actions}>
       <select value={orderBy} onChange={onChangeOrder}>
         <option value="newest">Sort by most recent</option>
-        <option value="stored">Sort by packed items</option>
+        <option value="packed">Sort by packed items</option>
         <option value="alphabetically">Order by alphabetically order</option>
       </select>
       <button onClick={onClearList}>Clear List</button>
