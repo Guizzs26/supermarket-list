@@ -1,1 +1,1 @@
-export { ListOfItems } from "./list-of-items";
+export { ListOfItems } from "./list-of-items.tsx";
