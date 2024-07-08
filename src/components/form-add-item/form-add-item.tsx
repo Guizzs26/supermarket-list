@@ -1,8 +1,9 @@
 import styles from "./form-add-item.module.css";
 
 import { ChangeEvent, FormEvent, useState } from "react";
-import { FormAddItemProps } from "./types/form.add.item.type";
+
 import { ItemEntity } from "../item/types/item.entity";
+import { FormAddItemProps } from "./types/form.add.item.type";
 
 const quantities = Array.from({ length: 10 }, (_, i) => i + 1);
 

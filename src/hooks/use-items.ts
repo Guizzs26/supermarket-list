@@ -27,6 +27,7 @@ const useItems = () => {
   const handleDeleteItem = useCallback(
     (id: string) => {
       const filteredItems = items.filter((item) => item.id !== id);
+
       updateItems(filteredItems);
     },
     [items]
@@ -36,6 +37,7 @@ const useItems = () => {
     const confirmed = window.confirm(
       "Are you sure you want to clear the list?"
     );
+
     if (confirmed) {
       updateItems([]);
     }
@@ -46,6 +48,7 @@ const useItems = () => {
       const toggledItems = items.map((item) =>
         item.id === id ? { ...item, packed: !item.packed } : item
       );
+
       updateItems(toggledItems);
     },
     [items]

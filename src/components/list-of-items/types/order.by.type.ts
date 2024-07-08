@@ -1,1 +1,1 @@
-export type OrderByType = "packed" | "alphabetically" | "newest";
+export type OrderByType = string;

@@ -11,6 +11,15 @@
   background-color: #4b527e;
 }
 
+/* Form content styles */
+
+.tertiaryHeading {
+  font-size: 2.4rem;
+  font-weight: 400;
+
+  margin-right: 1.6rem;
+}
+
 .submitBtn {
   transition: all 0.3s ease;
 
@@ -21,15 +30,6 @@
   background-color: #5c7cfa;
 }
 
-/* Form content styles */
-
-.tertiaryHeading {
-  font-size: 2.4rem;
-  font-weight: 400;
-
-  margin-right: 1.6rem;
-}
-
 /* Responsivity */
 
 @media (max-width: 768px) {
@@ -38,7 +38,10 @@
   }
 
   .tertiaryHeading {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+    word-break: keep-all;
+
     margin-top: 1rem;
     margin-bottom: 1.2rem;
   }
