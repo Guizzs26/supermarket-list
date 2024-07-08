@@ -1,52 +1,32 @@
-import { useState } from "react";
-
 import styles from "./App.module.css";
 
-import { ItemEntity } from "./components/item/types/item.entity";
+import { useItems } from "./hooks/use-items";
 
-import Logo from "./components/logo/logo";
-import FormAddItem from "./components/form-add-item/form-add-item";
-import ListOfItems from "./components/list-of-items/ListOfItems";
-import Stats from "./components/stats/Stats";
+import { Logo } from "./components/logo";
+import { FormAddItem } from "./components/form-add-item";
+import { ListOfItems } from "./components/list-of-items";
+import { Stats } from "./components/stats";
 
 export default function App() {
-  const [items, setItems] = useState<ItemEntity[]>([]);
-
-  const handleAddItem = (newItem: ItemEntity) => {
-    setItems((items) => [...items, newItem]);
-  };
-
-  const handleDeleteItem = (id: string) => {
-    setItems((items) => items.filter((item) => item.id !== id));
-  };
-
-  const handleToggleItem = (id: string) => {
-    setItems((items) =>
-      items.map((item) =>
-        item.id === id ? { ...item, isCompleted: !item.isCompleted } : item
-      )
-    );
-  };
-
-  const handleClearList = () => {
-    const confirmed = window.confirm("Are you sure?");
-
-    if (confirmed) {
-      setItems([]);
-    }
-  };
+  const state = useItems();
 
   return (
     <div className={styles.appContainer}>
       <Logo />
-      <FormAddItem onAddItem={handleAddItem} />
-      <ListOfItems
-        items={items}
-        onDeleteItem={handleDeleteItem}
-        onToggleItem={handleToggleItem}
-        onClearList={handleClearList}
-      />
-      <Stats items={items} />
+
+      <FormAddItem onAddItem={state.handleSubmit} />
+
+      <div className={styles.list}>
+        <ListOfItems
+          items={state.items}
+          orderBy={state.orderBy}
+          onDeleteItem={state.handleDeleteItem}
+          onCheckItem={state.handleCheckItem}
+          onClearList={state.handleClearList}
+        />
+      </div>
+
+      <Stats items={state.items} />
     </div>
   );
 }

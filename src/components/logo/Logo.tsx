@@ -4,7 +4,7 @@ const Logo = (): JSX.Element => {
   return (
     <header className={styles.header}>
       <img
-        src="carrinho-de-compras.png"
+        src="shopping-cart.png"
         alt="An illustration of a person shopping"
         className={styles.imgLogo}
       />

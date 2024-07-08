@@ -2,20 +2,21 @@ import styles from "./form-add-item.module.css";
 
 import { ChangeEvent, FormEvent, useState } from "react";
 import { FormAddItemProps } from "./types/form.add.item.type";
+import { ItemEntity } from "../item/types/item.entity";
 
 const quantities = Array.from({ length: 10 }, (_, i) => i + 1);
 
 const FormAddItem = ({ onAddItem }: FormAddItemProps): JSX.Element => {
   const [description, setDescription] = useState<string>("");
-  const [quantity, setQuantity] = useState<number>(0);
+  const [quantity, setQuantity] = useState<number>(1);
 
   // Controlled Input Element
-  const handleDescriptionChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChangeDescription = (e: ChangeEvent<HTMLInputElement>) => {
     setDescription(e.target.value);
   };
 
   // Controlled Select Element
-  const handleQuantityChange = (e: ChangeEvent<HTMLSelectElement>) => {
+  const handleChangeQuantity = (e: ChangeEvent<HTMLSelectElement>) => {
     setQuantity(Number(e.target.value));
   };
 
@@ -24,7 +25,7 @@ const FormAddItem = ({ onAddItem }: FormAddItemProps): JSX.Element => {
 
     if (description.trim() === "") return;
 
-    const newItem = {
+    const newItem: ItemEntity = {
       id: crypto.randomUUID(),
       description,
       quantity,
@@ -41,7 +42,7 @@ const FormAddItem = ({ onAddItem }: FormAddItemProps): JSX.Element => {
     <form onSubmit={handleSubmit} className={styles.addForm}>
       <h3 className={styles.tertiaryHeading}>What do you need to buy?</h3>
 
-      <select value={quantity} onChange={handleQuantityChange}>
+      <select value={quantity} onChange={handleChangeQuantity}>
         {quantities.map((num) => (
           <option value={num} key={num}>
             {num}
@@ -54,7 +55,7 @@ const FormAddItem = ({ onAddItem }: FormAddItemProps): JSX.Element => {
         placeholder="Add item..."
         autoFocus
         value={description}
-        onChange={handleDescriptionChange}
+        onChange={handleChangeDescription}
         className={styles.inputText}
       />
 
