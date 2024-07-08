@@ -1,5 +1,5 @@
-import { ItemEntity } from "../item/types/item.entity";
-import { ListOfItemsProps } from "./types/list.of.items.type.prop";
+import { ItemEntity } from "../item/types/item.entity.ts";
+import { ListOfItemsProps } from "./types/list.of.items.type.prop.ts";
 
 import { Item } from "../item/Item.tsx";
 
